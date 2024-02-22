@@ -224,10 +224,13 @@ So, what does the public keywork in the function mean?
 
 In Solidity, there are four visibility specifiers.
 
-`public` : visible externally & internally
-`private` : only visibile in current contract</
+`public` : visible externally & internally.
+<br/>
+`private` : only visibile in current contract.
+<br/>
 `external` : only visible externally (only for functions)
-`internal` : only visible internally
+<br/>
+`internal` : only visible internally.
 
 All data on the EVM chain is actually public data.
 By default functions are set to internal.
@@ -370,6 +373,7 @@ The index will also be displayed. In this case, the index 0 and 1.
 This person1 is great for one person but what if there are over 100 people. We can't just duplicate 100 or more lines of code. How would we do this to allow for more people?
 
 What we can do is use the array syntax for the Person struct. Sound a little confusing?
+
 Dont worry less go through this together.
 
 We need to create a dynamic Person array that is empty and make it public. This means we can add to it and delete it. The size of the array will dynamically change.
@@ -400,7 +404,7 @@ Best way to do this is to create a function that will add people into this Perso
 
 Let's redeploy and see what it looks like.
 
-![img-30]
+<a href="https://ibb.co/5ksB7bD"><img src="https://i.ibb.co/YXfprH9/img30.png" alt="img30" border="0"></a>
 
 If we type in 2 in the listOfPeople it shows there is someone there called CK with a favorite number of 55.
 
