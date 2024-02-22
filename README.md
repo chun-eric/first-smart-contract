@@ -1,18 +1,23 @@
 <h1>Setting up and deploying My First Blockchain Smart Contract (Testnet)</h1>
-<br/>
-<br/>
+
 This is the repo for my first smart contract setup and deployment. It's only a test contract so no real crypto was used. However it shows the basics of setting up a smart contract and seeing it deployed on a test net blockchain.
 
 <br/>
 <br/>
-<h2>Setting Up our Workspace and IDE </h2>
+<h2>Setting Up Our Workspace and IDE </h2>
 We will be using Remix Ethereum IDE for this project.
 
 First lets delete the files in the workspace and start from scratch.
+
 ![img-1]
 
-Let's create a file a call it SimpleStorage.sol
+Let's create a file a call it SimpleStorage.sol.
+<br/>
+
+```
 Create > New File > SimpleStorage.sol
+```
+
 ![img-2]
 
 This file ends in .sol which indicates to the compiler that it is a solidity file.
@@ -62,15 +67,16 @@ Let's call this contract SimpleStorage.
 There are many Types in solidity but let's focus on the basic types for now.
 
 ```
---> Booleans
---> Integers:
-------> int (positive or negative whole numbers)
-------> uint (positive whole number aka unsigned integer)
---> Address
---> Bytes
+Booleans
+Integers:
+--> int (positive or negative whole numbers)
+--> uint (positive whole number aka unsigned integer)
+Address
+Bytes
 ```
 
 <br/>
+
 Let's write some boolean examples below:
 
 ```
@@ -110,7 +116,7 @@ bytes32 favoriteBytes32 = "cat";
 
 <br/>
 <br/>
-<h2>A look at functions </h2>
+<h2>A Look at Solidity functions (basic overview) </h2>
 
 In programming, functions or methods are pieces of code that will execute a particular action or function when it is called.
 
@@ -126,8 +132,6 @@ Let's write a basic function block.
 
 We use the function keyword, then the name of the function, in this case it is store. We also pass in a paramter. In this case it is an uint256 \_favoriteNumber.
 
-<br/>
-<br/>
 We also have to make this function public.
 
 <br/>
@@ -167,8 +171,7 @@ We can see a lot of information about this transaction.
 ![img-14]
 
 Modifying anything in the code is actually modifying the smart contract. That's why we send a transaction to the blockchain. This costs gas.
-<br/>
-<br/>
+
 Deploying a smart contract is modifying the blockchain through a transaction that is why it always costs gas.
 
 <br/>
@@ -195,13 +198,14 @@ We can see all the transactions in the terminal.
 Okay, we can see that transactions are going through but we can't see our favorite number showing up anywhere.
 
 Our global state variable uint256 favoriteNumber by default set to internal. So we need to change it to public.
+
 ![img-20]
 
 Let's compile the SimpleStorage.sol one more time.
 Now delete the current contract in the Deployed Contracts section and click Deploy again.
 
-** NB **
-In real life, you cannot delete a smart contract. Once it is deployed on the blockchain it is immutable and cannot be changed! Please be very aware of this!
+<bold>** NB **</bold>
+<em>In real life, you cannot delete a smart contract. Once it is deployed on the blockchain it is immutable and cannot be changed! Please be very aware of this!</em>
 
 ![img-21]
 
@@ -223,10 +227,10 @@ So, what does the public keywork in the function mean?
 In Solidity, there are four visibility specifiers.
 
 <ul>
-  <li>public: visible externally & internally</li>
-  <li>private: only visibile in current contract</li>
-  <li>external: only visible externally (only for functions)</li>
-  <li>internal: only visible internally</li>
+  <li>```public``` : visible externally & internally</li>
+  <li>```private``` : only visibile in current contract</li>
+  <li>```external``` : only visible externally (only for functions)</li>
+  <li>```internal``` : only visible internally</li>
 </ul>
 
 All data on the EVM chain is actually public data.
@@ -295,9 +299,9 @@ There is another keyword called `pure` as well that disallows reading state vari
 
 So the `view` keyword doesn't cost us any gas. It will usually show as a call function in our terminal. Any changes to the contract data will be a transaction and will be marked with a green check mark in the terminal.
 
-However there is a big caveat here.
+<i>However there is a big caveat here.</i>
 
-If a function that uses gas requires another function that uses view, then the function that uses view will need to pay execution costs! Yikes!
+<em>If a function that uses gas requires another function that uses view, then the function that uses view will need to pay execution costs! </em>
 
 So for example if the retreive function is located inside the store function then the retrieve function will have to pay execution costs! This is shown below.
 
@@ -311,5 +315,4 @@ function store(uint256 _favoriteNumber) public {
 So, please be aware of this.
 
 <br/>
-<br/>
-<h2>Solidy Arrays & Structs</h2>
+<h2>Solidity Arrays & Structs</h2>
