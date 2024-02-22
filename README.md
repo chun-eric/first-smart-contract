@@ -134,9 +134,7 @@ We use the function keyword, then the name of the function, in this case it is s
 
 We also have to make this function public.
 
-<br/>
-<br/>
-We can already run this program. So hit the compile button.
+We can run this program. So hit the compile button.
 
 ![img-9]
 
@@ -227,10 +225,10 @@ So, what does the public keywork in the function mean?
 In Solidity, there are four visibility specifiers.
 
 <ul>
-  <li>```public``` : visible externally & internally</li>
-  <li>```private``` : only visibile in current contract</li>
-  <li>```external``` : only visible externally (only for functions)</li>
-  <li>```internal``` : only visible internally</li>
+  ```public``` : visible externally & internally
+  ```private``` : only visibile in current contract</
+  ```external``` : only visible externally (only for functions)
+  ```internal``` : only visible internally
 </ul>
 
 All data on the EVM chain is actually public data.
