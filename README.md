@@ -224,12 +224,10 @@ So, what does the public keywork in the function mean?
 
 In Solidity, there are four visibility specifiers.
 
-<ul>
-  ```public``` : visible externally & internally
-  ```private``` : only visibile in current contract</
-  ```external``` : only visible externally (only for functions)
-  ```internal``` : only visible internally
-</ul>
+`public` : visible externally & internally
+`private` : only visibile in current contract</
+`external` : only visible externally (only for functions)
+`internal` : only visible internally
 
 All data on the EVM chain is actually public data.
 By default functions are set to internal.
