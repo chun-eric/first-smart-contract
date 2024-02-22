@@ -1,9 +1,10 @@
 <h1>Setting up and deploying My First Blockchain Smart Contract (Testnet)</h1>
 <br/>
+<br/>
 This is the repo for my first smart contract setup and deployment. It's only a test contract so no real crypto was used. However it shows the basics of setting up a smart contract and seeing it deployed on a test net blockchain.
 
-this another change test. Im just add some new content here.
-
+<br/>
+<br/>
 <h2>Setting Up our Workspace and IDE </h2>
 We will be using Remix Ethereum IDE for this project.
 
@@ -37,9 +38,9 @@ After having a quick look, we want to start writing some code.
 First we have to write the solidity version.
 This will start with the following:
 
-'''
+```
 pragma solidity [version number]
-'''
+```
 
 In our case, the latest version is 0.8.24. We also need to add a license identifier at the very top.
 
@@ -60,33 +61,36 @@ Let's call this contract SimpleStorage.
 
 There are many Types in solidity but let's focus on the basic types for now.
 
+```
 --> Booleans
 --> Integers:
 ------> int (positive or negative whole numbers)
 ------> uint (positive whole number aka unsigned integer)
 --> Address
 --> Bytes
+```
 
+<br/>
 Let's write some boolean examples below:
 
-'''
+```
 bool hasFavoriteNumber = true;
 bool hasFavoriteNumber = false;
-'''
+```
 
 Here are some variables in uint format:
 
-'''
+```
 uint favoriteNumber = 88;
-'''
+```
 
 uint is quite flexible as we can state how many bytes we want assigned.
 
 For example:
 
-'''
+```
 uint256 favoriteNumber = 256;
-'''
+```
 
 This states that this favoritNumber variable has 256 bits.
 The maximum size is a uint256. If you dont specify a
@@ -95,9 +99,217 @@ value for a uint it defaults to 256 bits. So uint is = uint256.
 So, whats the difference between uint and int? Int can be
 positive or negative.
 
-'''
+```
 bool hasFavoritNumber = true;
 int256 favoriteNumber = -88;
-'''
+string myFavoriteStringNumbe = "eighty-two";
+int256 = -32;
+address myAddress = mzy45FmreqZAVpVfJpyRtU8Xk7oMHaXKbS;
+bytes32 favoriteBytes32 = "cat";
+```
 
+<br/>
+<br/>
+<h2>A look at functions </h2>
 
+In programming, functions or methods are pieces of code that will execute a particular action or function when it is called.
+
+We use the keyword:
+
+```
+function
+```
+
+Let's write a basic function block.
+
+![img-8]
+
+We use the function keyword, then the name of the function, in this case it is store. We also pass in a paramter. In this case it is an uint256 \_favoriteNumber.
+
+<br/>
+<br/>
+We also have to make this function public.
+
+<br/>
+<br/>
+We can already run this program. So hit the compile button.
+
+![img-9]
+
+Then, go to the Deploy and run transactions tab.
+
+We want to choose the right test environment. For us it is Remix VM (Shanghai)
+
+![img-10]
+
+```
+Click > Deploy
+```
+
+Under Deployed Contracts, we can see the contract is deployed.
+
+![img-11]
+
+You can also the SimpleStorage contract also has a unique address.
+
+![img-12]
+
+If you look at the bottom of the terminal, we can see that the creation of SimpleStorage is pending.
+
+The green check mark shows that we sent a transaction to deploy this contract.
+
+![img-13]
+
+This is just a simulated transaction.
+
+We can see a lot of information about this transaction.
+
+![img-14]
+
+Modifying anything in the code is actually modifying the smart contract. That's why we send a transaction to the blockchain. This costs gas.
+<br/>
+<br/>
+Deploying a smart contract is modifying the blockchain through a transaction that is why it always costs gas.
+
+<br/>
+<br/>
+
+Let's call the function that we created earlier.
+Input any number and click the store button.
+
+![img-15]
+
+If we have a look at the terminal, you can see that the transaction left our test account to the SimpleStorage smart contract account.
+
+![img-17]
+
+In our Account, the transaction has reduced our balance.
+
+![img-18]
+
+Play around and input some more numbers.
+We can see all the transactions in the terminal.
+
+![img-19]
+
+Okay, we can see that transactions are going through but we can't see our favorite number showing up anywhere.
+
+Our global state variable uint256 favoriteNumber by default set to internal. So we need to change it to public.
+![img-20]
+
+Let's compile the SimpleStorage.sol one more time.
+Now delete the current contract in the Deployed Contracts section and click Deploy again.
+
+** NB **
+In real life, you cannot delete a smart contract. Once it is deployed on the blockchain it is immutable and cannot be changed! Please be very aware of this!
+
+![img-21]
+
+After redeploying, we can now see a blue button called favoriteNumber.
+
+![img-22]
+
+Click the favoriteNumber button. You can see it returns 0 which is correct because we didn't input anything.
+
+![img-23]
+
+If we input 123 in our store function, it will execute the store function, as shown in the terminal but if you click on the favoriteNumber button it will return 123.
+
+![img-24]
+
+So, what does the public keywork in the function mean?
+<br/>
+
+In Solidity, there are four visibility specifiers.
+
+<ul>
+  <li>public: visible externally & internally</li>
+  <li>private: only visibile in current contract</li>
+  <li>external: only visible externally (only for functions)</li>
+  <li>internal: only visible internally</li>
+</ul>
+
+All data on the EVM chain is actually public data.
+By default functions are set to internal.
+
+For more information go to this specific url.
+[https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers]
+
+Everytime we update the state of the smart contract it is going to cost gas.
+<br/>
+So, if we start adding new functions or new additional calculations it must perform, it's going to cost us more gas.
+
+Our gas is as below.
+
+![img-25]
+
+Let's add some extra calculation in our store function.
+
+```
+function store(uint256 _favoriteNumber) public  {
+        favoriteNumber = _favoriteNumber;
+        favoriteNumber = favoriteNumber + 1;
+    }
+
+```
+
+Delete the contract and redeploy.
+Input 123 into the store function.
+You can see our gas has increased.
+
+![img-26]
+
+We can delete add line to our function.
+
+Now is a good time to quick touch on scope.
+Variables within functions cannot be accessed.
+Global state variables can be accessed by all functions.
+
+So our global state variable uint256 public favoriteNumber can be accessed by any function within the SimpleStorage contract.
+
+Okay, moving on.
+
+Adding the `public` keyword means it is a getter function. This could be for variables or function values.
+
+<br/
+Let's write a new function called retrive.
+
+```
+  function retrieve() public view returns(uint256){
+    return favoriteNumber;
+  }
+```
+
+As you can see we input a number 5.
+If we click on both favoriteNumber and retrieve button it returns 5.
+
+![img-27]
+
+But the question is why is the retrieve function blue and the store function orange??
+
+![img-28]
+
+The reason is the `view` keyword states it is a read only operation. It will not modify the state of the contract or modify any state variables. It does not make any changes to the contract's data, that is why the retrieve function is blue colored.
+
+There is another keyword called `pure` as well that disallows reading state variables and making changes it to it as well.
+
+So the `view` keyword doesn't cost us any gas. It will usually show as a call function in our terminal. Any changes to the contract data will be a transaction and will be marked with a green check mark in the terminal.
+
+However there is a big caveat here.
+
+If a function that uses gas requires another function that uses view, then the function that uses view will need to pay execution costs! Yikes!
+
+So for example if the retreive function is located inside the store function then the retrieve function will have to pay execution costs! This is shown below.
+
+```
+function store(uint256 _favoriteNumber) public {
+    favoriteNumber = _favoriteNumber;
+    retrieve();
+  }
+```
+
+So, please be aware of this.
+
+<br/>
+<br/>
+<h2>Solidy Arrays & Structs</h2>
