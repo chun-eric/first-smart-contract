@@ -2,8 +2,6 @@
 
 This is the repo for my first smart contract setup and deployment. It's only a test contract so no real crypto was used. However it shows the basics of setting up a smart contract and seeing it deployed on a test net blockchain.
 
-<br/>
-<br/>
 <h2>Setting Up Our Workspace and IDE </h2>
 We will be using Remix Ethereum IDE for this project.
 
