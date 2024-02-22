@@ -299,9 +299,9 @@ There is another keyword called `pure` as well that disallows reading state vari
 
 So the `view` keyword doesn't cost us any gas. It will usually show as a call function in our terminal. Any changes to the contract data will be a transaction and will be marked with a green check mark in the terminal.
 
-<i>However there is a big caveat here.</i>
+<strong>However there is a big caveat here.</strong>
 
-<em>If a function that uses gas requires another function that uses view, then the function that uses view will need to pay execution costs! </em>
+<strong>If a function that uses gas requires another function that uses view, then the function that uses view will need to pay execution costs! </strong>
 
 So for example if the retreive function is located inside the store function then the retrieve function will have to pay execution costs! This is shown below.
 
@@ -316,3 +316,99 @@ So, please be aware of this.
 
 <br/>
 <h2>Solidity Arrays & Structs</h2>
+
+A struct is a way to define a custom type that allows you to group together variables of different types. It's like a container where you can store various pieces of data that belong together.
+
+Each piece of data within a struct is called a member of a field and each can be a different data type.
+
+Structs are very useful when you want to show complex data structures within your smart contracts.
+
+Have a look at the below struct.
+
+```
+contract videoStore {
+  struct Video {
+    string title;
+    string releaseDate;
+    uint movieID;
+  }
+}
+```
+
+Once a struct is defined we can make instances of it. Structs can be stored in state variables, local variables and can be passed to and returned from functions in our smart contract.
+
+Structs keep data organized and make smart contracts easier to work with.
+
+Arrays in Solidity are like normal arrays like any other programming language.
+
+We can write an array like this in Solidiy:
+
+```
+uint256[] listOfMovieID; // this is an array of numbers
+```
+
+All arrays start with a zero index.
+
+Okay, let's create a struct in our code.
+
+```
+struct Person {
+    uint256 personFavoriteNumber;
+    string personName;
+  }
+```
+
+We can also create an instance of the struct Person and store it in a variable like this:
+
+```
+Person public person1 = Person({personFavoriteNumber: 8, personName: "Steve"});
+```
+
+Let's redeploy this contract.
+Click on the person1 button.
+You can see person1 parameters being displayed.
+The index will also be displayed. In this case, the index 0 and 1.
+
+![img-29]
+
+This person1 is great for one person but what if there are over 100 people. We can't just duplicate 100 or more lines of code. How would we do this to allow for more people?
+
+What we can do is use the array syntax for the Person struct. Sound a little confusing?
+Dont worry less go through this together.
+
+We need to create a dynamic Person array that is empty and make it public. This means we can add to it and delete it. The size of the array will dynamically change.
+
+```
+Person[] public listOfPeople;
+```
+
+If you try to redeploy the contract, you have to input the index number to see the value. However, as it's an empty array, it will return nothing.
+
+On the other hand if you added a number inside the square brackets, it would become a static array.
+
+```
+Person[5] public listOfPeople;
+```
+
+The above would mean, we could only put a maximum size of 5.
+
+We will mainly focus on the dynamic array, as we want to input a random number of people in this array.
+
+Best way to do this is to create a function that will add people into this Person array.
+
+```
+  function addPerson(uint256 _personFavoriteNumber, string memory _personName) public {
+        listOfPeople.push(Person(_personFavoriteNumber, _personName));
+    }
+```
+
+Let's redeploy and see what it looks like.
+
+![img-30]
+
+If we type in 2 in the listOfPeople it shows there is someone there called CK with a favorite number of 55.
+
+Okay, we have basic understanding of how to add to a dynamic array.
+
+<br/>
+<h2>Errors and Warnings</h2>
