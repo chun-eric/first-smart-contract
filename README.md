@@ -424,12 +424,12 @@ But for best practices, it is always a good idea to fix the warning errors.
 
 There are 6 places you can store data in an Ethereum Virtual Machine.
 
-<li>Stack<li>
-<li>Memory<li>
-<li>Storage<li>
-<li>Calldata<li>
-<li>Code<li>
-<li>Logs<li>
+-Stack
+-Memory
+-Storage
+-Calldata
+-Code
+-Logs
 
 For now let's focus on the `memory`, `storage` and `calldata`.
 
