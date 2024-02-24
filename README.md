@@ -2,6 +2,7 @@
 
 This is the repo for my first smart contract setup and deployment. It's only a test contract so no real crypto was used. However it shows the basics of setting up a smart contract and seeing it deployed on a test net blockchain.
 
+<br/>
 <h2>Setting Up Our Workspace and IDE </h2>
 We will be using Remix Ethereum IDE for this project.
 
@@ -412,3 +413,65 @@ Okay, we have basic understanding of how to add to a dynamic array.
 
 <br/>
 <h2>Errors and Warnings</h2>
+
+Red Errors means code isn't compiling.
+Warnings are marked in orange but you can technically still compile.
+
+But for best practices, it is always a good idea to fix the warning errors.
+
+<br/>
+<h2>Memory, Storage, Calldata</h2>
+
+There are 6 places you can store data in an Ethereum Virtual Machine.
+
+<li>Stack<li>
+<li>Memory<li>
+<li>Storage<li>
+<li>Calldata<li>
+<li>Code<li>
+<li>Logs<li>
+
+For now let's focus on the `memory`, `storage` and `calldata`.
+
+`memory` only exists in memory. It only exists in a very short period of time. It can be modified. Data stored in memory is erased at the end of the function exeuction and does not persist on the blockchain. It is more expensive than `calldata` because accessing `memory` incurs higher gast cost. `memory` is great for temporary storageand manipulation of data within functions.
+
+`calldata` is an immutable, temporary location used to store function arguments. It is only read only and is used for external function calls. It is only available for the duration of the function call. Ideal for passing large arrays or structs that don't need to be modified by the function.
+
+`storage` is permanent and persists across transactions and even after the execution of functions. Because of its persistant nature, it is more expensive. `storage` is used for state variables of the contract.
+
+Strings are a special type of variable and is usually typed as `memory`
+
+You won't get an error if \_personalName is changed to Boban as shown below. `memory` can be modified.
+
+```
+function addPerson(string memory _personName, uint256 _personFavoriteNumber ) public {
+      _personalName = "Boban"
+      listOfPeople.push(Person(_personFavoriteNumber,_personName));
+  }
+```
+
+However, you will get an error in the below code. This is because `calldata` cannot be modified.
+
+```
+function addPerson(string calldata _personName, uint256 _personFavoriteNumber ) public {
+      _personalName = "Boban"
+      listOfPeople.push(Person(_personFavoriteNumber,_personName));
+  }
+```
+
+In our code base, our `storage` variable is the myFavoriteNumber as it is stored as a state variable.
+It exists or persists outside of function calls.
+
+```
+ uint256 public favoriteNumber;
+```
+
+So, why cant uint256 be typed as `memory`?
+This is because uint256 is known as a primitive type or value types. Meaning uint256 is always passed by value not by reference.
+
+Passed by value means a copy of the original data is created and passed to the function. Any modifications made to this data within the function does not affect the original data.
+
+Passed by reference means, the function receives a reference or points to the original data, not a copy. Any modifications made to this data within the function does affect the original data.
+
+<br/>
+<h2>Basic Mappings</h2>

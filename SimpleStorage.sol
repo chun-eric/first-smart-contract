@@ -23,7 +23,7 @@ contract SimpleStorage {
     favoriteNumber = _favoriteNumber;
 
   }
-
+ 
   //view, pure are keywords that doesnt affect the contract data but you can still run them.
   // view keyword disallows modification of state.
   // pure keyword disallows modification of state and even reading it from state or storage! 
