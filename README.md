@@ -424,6 +424,11 @@ But for best practices, it is always a good idea to fix the warning errors.
 
 There are 6 places you can store data in an Ethereum Virtual Machine.
 
+<table>
+<tr>Stack</tr>
+<tr>Memory</tr>
+</table>
+
 -Stack
 -Memory
 -Storage
@@ -475,3 +480,44 @@ Passed by reference means, the function receives a reference or points to the or
 
 <br/>
 <h2>Basic Mappings</h2>
+
+Mapping is like a dictionary. It returns a key with a value returned. So, if you have a lot of data in eithr a list or an array and you want to grab a certain key with its associated value, then the data structure you would use is mapping.
+
+This is a much quicker way to access data.
+Let's create our first mapping.
+
+```
+mapping(string => uint256) public nameToFavoriteNumber;
+```
+
+The above code sets a string key to uint256 value. So for instance "John" is the key with a uint256 value of 190.
+
+We also need to add mapping capabilities whenever we add a Person in the addPerson function.
+
+```
+  function addPerson(string memory _personName, uint256 _personFavoriteNumber ) public {
+      // add to listOfPeople array
+      listOfPeople.push(Person(_personFavoriteNumber,_personName));
+
+      // add mapping structure so we can easily search for it. eg "John" -> 193;
+      nameToFavoriteNumber[_personName] = _personFavoriteNumber;
+  }
+
+```
+
+Let's see this in action. We will add the following data into the addPerson Function.
+
+```
+"Chris", 300
+"Elle", 500
+"Francis", 4000
+```
+
+![img-31]
+
+![img-32]
+
+We can say the mapping works and we can see the correct value associated with each name.
+
+
+

@@ -15,8 +15,12 @@ contract SimpleStorage {
 
   // Person public person1 = Person({ personFavoriteNumber: 8, personName: "Steve"});
 
-  // How can we allow Person struct to allow for many people? 
+  // How can we allow Person struct to allow for many people? A dynamic array.
   Person[] public listOfPeople;
+
+  // To access a key with a value with lots of data inside a mapping structure is excellent.
+  mapping(string => uint256) public nameToFavoriteNumber;
+
 
   // changes the state of our contract data.
   function store(uint256 _favoriteNumber) public {
@@ -33,6 +37,10 @@ contract SimpleStorage {
 
   // function that pushes new people into our list of Person.
   function addPerson(string memory _personName, uint256 _personFavoriteNumber ) public {
+      // add to listOfPeople array
       listOfPeople.push(Person(_personFavoriteNumber,_personName));
+      
+      // add mapping structure so we can easily search for it. eg "John" -> 193;
+      nameToFavoriteNumber[_personName] = _personFavoriteNumber;
   }
 }
