@@ -513,11 +513,8 @@ Let's see this in action. We will add the following data into the addPerson Func
 "Francis", 4000
 ```
 
-![img-31]
+<a href="https://ibb.co/Scc76JK"><img src="https://i.ibb.co/8bb4mXj/img31.png" alt="img31" border="0"></a>
 
-![img-32]
+<a href="https://ibb.co/5ntd2Qv"><img src="https://i.ibb.co/vQgbDNm/img32.png" alt="img32" border="0"></a>
 
 We can say the mapping works and we can see the correct value associated with each name.
-
-
-
