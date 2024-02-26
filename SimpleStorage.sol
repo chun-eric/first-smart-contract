@@ -23,7 +23,7 @@ contract SimpleStorage {
 
 
   // changes the state of our contract data.
-  function store(uint256 _favoriteNumber) public {
+  function store(uint256 _favoriteNumber) public virtual {
     favoriteNumber = _favoriteNumber;
 
   }

@@ -518,3 +518,6 @@ Let's see this in action. We will add the following data into the addPerson Func
 <a href="https://ibb.co/5ntd2Qv"><img src="https://i.ibb.co/vQgbDNm/img32.png" alt="img32" border="0"></a>
 
 We can say the mapping works and we can see the correct value associated with each name.
+
+<br/>
+<h2>Adding a Storage Factory</h2>
