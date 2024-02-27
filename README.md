@@ -525,28 +525,28 @@ I won't be explaining how to set up a Metamask wallet as there hundreds of tutor
 
 I have already setup my own dummy Metamask wallet, and the test network Sepolia has been selected. As you can see, there are no available Eth.
 
-![img-33]
+<a href="https://ibb.co/wzgpvpq"><img src="https://i.ibb.co/tJKYdY6/img33.png" alt="img33" border="0"></a>
 
 We will be going to Chainlink Faucets to get Sepolia Testnet LINK tokens
 from [https://faucets.chain.link/sepolia]
 
 We will first connect our wallets.
 
-![img-34]
+<a href="https://ibb.co/wLVh01Q"><img src="https://i.ibb.co/z5pVnw2/img34.png" alt="img34" border="0"></a>
 
 ```
 Click > Next
 ```
 
-![img-35]
+<a href="https://ibb.co/QpZWWwz"><img src="https://i.ibb.co/LYMTT7b/img35.png" alt="img35" border="0"></a>
 
 Our address is automatically populated. Send request.
 
-![img-36]
+<a href="https://ibb.co/Q9cJvjn"><img src="https://i.ibb.co/tBhHpPc/img36.png" alt="img36" border="0"></a>
 
 You can see our account has 0.25Eth. Great! Now we have the ability to make test transactions. We won't be making it yet, but we will soon.
 
-![img-37]
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img37" border="0"></a>
 
 <br/>
 <h2>Adding a Storage Factory</h2>
