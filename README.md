@@ -427,14 +427,11 @@ There are 6 places you can store data in an Ethereum Virtual Machine.
 <table>
 <tr>Stack</tr>
 <tr>Memory</tr>
+<tr>Storage</tr>
+<tr>Calldata</tr>
+<tr>Code</tr>
+<tr>Logs</tr>
 </table>
-
--Stack
--Memory
--Storage
--Calldata
--Code
--Logs
 
 For now let's focus on the `memory`, `storage` and `calldata`.
 
@@ -518,6 +515,38 @@ Let's see this in action. We will add the following data into the addPerson Func
 <a href="https://ibb.co/5ntd2Qv"><img src="https://i.ibb.co/vQgbDNm/img32.png" alt="img32" border="0"></a>
 
 We can say the mapping works and we can see the correct value associated with each name.
+
+<br/>
+<h2>Connecting our Wallet and Receiving Test Tokens</h2>
+
+In this section, we will connect our Metmask wallet to receive Eth test tokens and make test transactions.
+
+I won't be explaining how to set up a Metamask wallet as there hundreds of tutorials online for that.
+
+I have already setup my own dummy Metamask wallet, and the test network Sepolia has been selected. As you can see, there are no available Eth.
+
+![img-33]
+
+We will be going to Chainlink Faucets to get Sepolia Testnet LINK tokens
+from [https://faucets.chain.link/sepolia]
+
+We will first connect our wallets.
+
+![img-34]
+
+```
+Click > Next
+```
+
+![img-35]
+
+Our address is automatically populated. Send request.
+
+![img-36]
+
+You can see our account has 0.25Eth. Great! Now we have the ability to make test transactions. We won't be making it yet, but we will soon.
+
+![img-37]
 
 <br/>
 <h2>Adding a Storage Factory</h2>
