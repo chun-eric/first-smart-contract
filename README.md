@@ -635,3 +635,67 @@ Our function should look like this so far:
         listOfSimpleStorageContracts.push(simpleStorageContractVariable);
     }
 ```
+
+So far so good.
+
+Now, let's work on the next function sfStore.
+What this function will do is take two input paramters,
+a uint256 index number and a uint256 number value.
+
+That means we can store a number at a particular index.
+
+Let's code this.
+
+```
+function sfStore(uint256 _simpleStorageIndex, uint256 _simpleStorageNumber) public {
+        listOfSimpleStorageContracts[_simpleStorageIndex].store(_simpleStorageNumber);
+    }
+```
+
+The above code means get me the value at this index from the listOfSimpleStorageContracts array. This will return a value.
+
+```
+listOfSimpleStorageContracts[_simpleStorageIndex]
+```
+
+We have access to all the functions from SimpleStorage contract as
+we imported it earlier, means we can get access to all its functions
+such as the store, retrieve and addPerson functions. We can chain the function(or method) onto our line of code pass in the parameter.
+
+```
+listOfSimpleStorageContracts[_simpleStorageIndex].store(_simpleStorageNumber);
+```
+
+Our final function sfGet should get the number we inputted in the sfStore. To retrive the number from this function, we will have to pass in the index number and use the retrieve method created from our SimpleStorage contract. We also want to return this number as a uint256.
+
+```
+ function sfGet(uint256 _simpleStorageIndex) public view returns (uint256) {
+        return listOfSimpleStorageContracts[_simpleStorageIndex].retrieve();
+    }
+```
+
+The above code should be pretty self-explanatory.
+
+Now let's test it out. Let's deploy this contract and see the functions.
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img38" border="0"></a>
+
+Click on the createSimpleStorageContract button.
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img39" border="0"></a>
+
+The contract is successfully deployed.
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img40" border="0"></a>
+
+In the sfStore function add the following numbers, 0 and 22 as input parameters. Click sfStore.
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img41" border="0"></a>
+
+Input 0 in the sfGet function to retrieve the number you just inputted in sfStore then Click it.
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img42" border="0"></a>
+
+It should return 22. If it does congratulations, it all works!
+
+<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img43" border="0"></a>
