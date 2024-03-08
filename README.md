@@ -550,3 +550,88 @@ You can see our account has 0.25Eth. Great! Now we have the ability to make test
 
 <br/>
 <h2>Adding a Storage Factory</h2>
+
+Now what we will do is add a StorageFactory.sol file that will create
+new Simple Storage contract.
+
+Let's create the contract first.
+
+```
+contract StorageFactory {
+
+}
+```
+
+Next, we want to keep an array of our Simple Storage contracts so let's
+mae a SimpleStorage contract array and call it listOfSimpleStorageContracts.
+
+```
+contract StorageFactory {
+  SimpleStorage[] public listOfSimpleStorageContracts;
+}
+```
+
+Let's add three more functions.
+
+1. A function that will create a SimpleStorage contract.
+2. A function that will store the newly create SimpleStorage contract.
+3. A function that will retrive a contract from the SimpleStorage array.
+
+```
+contract StorageFactory {
+    SimpleStorage[] public listOfSimpleStorageContracts;
+
+    // A function that will create a SimpleStorage contract.
+    function createSimpleStorageContract() public {}
+
+    // A function that will store the newly create SimpleStorage contract.
+    function sfStore() public {}
+
+    // A function that will retrive a contract from the SimpleStorage array.
+    function sfGet() public {}
+}
+```
+
+Now that we have a basic structure of our what we need in our StorageFactory contract, we can start working on our functions.
+
+Let's look at our first function, createSimpleStorageContract.
+
+We want to use the the SimpleStorage contract as a template to create
+new contracts. So how do we do that?
+
+First, we need to import the SimpleStorage contracting using the
+import keyword.
+
+```
+import {SimpleStorage}  from "./SimpleStorage.sol";
+```
+
+By adding this line of code and placing it above the contract, tells the compiler we are importing the SimpleStorage contract into this contract.
+
+Now we can use create instances of the SimpleStorage contract. So, let's do that and add it in our function.
+
+```
+function createSimpleStorage() public {
+  SimpleStorage simpleStorageContractVariable = new SimpleStorage();
+
+}
+```
+
+The above line of code is telling us make a new Simple Storage contract and name it simpleStorageContractVariable.
+
+But how do we add the newly created contract into the listOfSimpleStorageContracts array?
+
+Below is the code we can add. It is telling us to push the newly created contract simpleStorageContractVariable into the listOfSimpleStorageContracts.
+
+```
+listOfSimpleStorageContracts.push(simpleStorageContractVariable);
+```
+
+Our function should look like this so far:
+
+```
+    function createSimpleStorageContract() public {
+        SimpleStorage simpleStorageContractVariable = new SimpleStorage();
+        listOfSimpleStorageContracts.push(simpleStorageContractVariable);
+    }
+```
