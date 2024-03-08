@@ -678,24 +678,29 @@ The above code should be pretty self-explanatory.
 
 Now let's test it out. Let's deploy this contract and see the functions.
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img38" border="0"></a>
+<a href="https://ibb.co/fnS2GyH"><img src="https://i.ibb.co/QCcfjTM/img38.png" alt="img38" border="0"></a>
 
 Click on the createSimpleStorageContract button.
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img39" border="0"></a>
+<a href="https://ibb.co/rpbrTCr"><img src="https://i.ibb.co/xgmTPpT/img39.png" alt="img39" border="0"></a>
 
 The contract is successfully deployed.
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img40" border="0"></a>
+<a href="https://ibb.co/kJJrgZ0"><img src="https://i.ibb.co/bFFygtL/img40.png" alt="img40" border="0"></a>
 
 In the sfStore function add the following numbers, 0 and 22 as input parameters. Click sfStore.
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img41" border="0"></a>
+<a href="https://ibb.co/gVSWmhs"><img src="https://i.ibb.co/L5xgYH4/img41.png" alt="img41" border="0"></a>
 
 Input 0 in the sfGet function to retrieve the number you just inputted in sfStore then Click it.
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img42" border="0"></a>
+<a href="https://ibb.co/ggzcpWv"><img src="https://i.ibb.co/s3yXG15/img42.png" alt="img42" border="0"></a>
 
 It should return 22. If it does congratulations, it all works!
 
-<a href="https://ibb.co/L5X8tB8"><img src="https://i.ibb.co/8cL05G0/img37.png" alt="img43" border="0"></a>
+<a href="https://ibb.co/RPVP74W"><img src="https://i.ibb.co/Qn1nXjG/img43.png" alt="img43" border="0"></a>
+
+Okay, let's go to our final section.
+
+<br/>
+<h2>Updating State Variables from a Child Contract</h2>
