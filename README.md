@@ -703,4 +703,83 @@ It should return 22. If it does congratulations, it all works!
 Okay, let's go to our final section.
 
 <br/>
-<h2>Updating State Variables from a Child Contract</h2>
+<h2>Updating Parent State Variables from a Child Contract</h2>
+
+We can update state variables via another file outside of SimpleStorage.sol.
+
+Let's create another file called AddTenStorage.sol.
+
+This time we can use the `import` keyword to import SimpleStorage.sol and get access to the SimpleStorage contract.
+
+![img = 44]
+
+In order to update the global state variable favoriteNumber from SimpleStorage through an outside coutract, we use the keyword `is`.
+
+Let's name the new outside contract AddTenStorage. The logic here is we will add 10 to the favoriteNumber state variable.
+
+This is the code that we will write:
+
+```
+contract AddTenStorage is SimpleStorage {}
+```
+
+Now we have access to SimpleStorage state variable.
+
+We can now write a function that will update the SimpleStorage state variable from the outside contract AddTenStorage.
+
+The `override` keyword must be used in the child contract in order to override the state variable in the parent contract.
+
+```
+contract AddTenStorage is SimpleStorage {
+  function store(uint256 _favoriteNumber) public override {
+    favoriteNumber = _favoriteNumber + 10;
+  }
+}
+```
+
+In the parent contract, the `virtual` keyword must be used in order to allow the child contract to override state variables.
+
+The `virtual` keyword would be added in the parent store function as shown below:
+
+```
+  function store(uint256 _favoriteNumber) public virtual {
+        favoriteNumber = _favoriteNumber;
+
+    }
+```
+
+First let's deploy the parent contract which is SimpleStorage and check the value of favoriteNumber. We will store 10 in our store function.
+
+![img = 45]
+
+Let's check the value of favoriteNumber in our SimpleStorage function.
+
+![img = 46]
+
+In order to test this out, to show that it works properly, let's deploy the AddTenStorage contract and input the same value of favoriteNumber in the store function.
+
+If we click on favoriteNumber we get 20 returned which is correct.
+
+![img = 47]
+
+That means our function works. It has inherited the same functions from SimpleStorage with the new calculations.
+
+The caveat here is that we can not actually see the value of favoriteNumber from AddTenStorage contract updating the value of favoriteNumber in the SimpleStorage contract. That will probably be a another more indepth project.
+
+<br/>
+<h2>Project End</h2>
+
+This smart contract project was a very simple beginner project, for me to get familiarised with the basics of solidity. This is what I learned from building this project.
+
+<li>How to make new contracts</li>
+<li>How to store and retrive data through mappings</li>
+<li>Setting up global variables</li>
+<li>How to use structs data type</li>
+<li>Adding data to dynamic arrays</li>
+<li>Understanding the importance of ABI's</li>
+<li>How to interact with other contracts using the address and ABI</li>
+<li>Importance of Typecasting</li>
+<li>How to use the `import` keyword</li>
+<li>How to update global variables from a child contract using the ```is``` and ```override``` keyword</li>
+
+I learnt a lot from this basic project. Thank you for reading until the end.
