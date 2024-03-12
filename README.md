@@ -711,7 +711,7 @@ Let's create another file called AddTenStorage.sol.
 
 This time we can use the `import` keyword to import SimpleStorage.sol and get access to the SimpleStorage contract.
 
-![img = 44]
+<a href="https://ibb.co/KNc0qj1"><img src="https://i.ibb.co/k3VH8gd/img44.png" alt="img44" border="0"></a>
 
 In order to update the global state variable favoriteNumber from SimpleStorage through an outside coutract, we use the keyword `is`.
 
@@ -750,24 +750,24 @@ The `virtual` keyword would be added in the parent store function as shown below
 
 First let's deploy the parent contract which is SimpleStorage and check the value of favoriteNumber. We will store 10 in our store function.
 
-![img = 45]
+<a href="https://ibb.co/ct09Q20"><img src="https://i.ibb.co/FJ21z82/img45.png" alt="img45" border="0"></a>
 
 Let's check the value of favoriteNumber in our SimpleStorage function.
 
-![img = 46]
+<a href="https://ibb.co/PxKpCZr"><img src="https://i.ibb.co/Tc6XhBw/img46.png" alt="img46" border="0"></a>
 
 In order to test this out, to show that it works properly, let's deploy the AddTenStorage contract and input the same value of favoriteNumber in the store function.
 
 If we click on favoriteNumber we get 20 returned which is correct.
 
-![img = 47]
+<a href="https://ibb.co/dp3wCq7"><img src="https://i.ibb.co/ykMcv1V/img47.png" alt="img47" border="0"></a>
 
 That means our function works. It has inherited the same functions from SimpleStorage with the new calculations.
 
 The caveat here is that we can not actually see the value of favoriteNumber from AddTenStorage contract updating the value of favoriteNumber in the SimpleStorage contract. That will probably be a another more indepth project.
 
 <br/>
-<h2>Project End</h2>
+<h2>Project Summary</h2>
 
 This smart contract project was a very simple beginner project, for me to get familiarised with the basics of solidity. This is what I learned from building this project.
 
@@ -778,8 +778,13 @@ This smart contract project was a very simple beginner project, for me to get fa
 <li>Adding data to dynamic arrays</li>
 <li>Understanding the importance of ABI's</li>
 <li>How to interact with other contracts using the address and ABI</li>
+<li>How to create contracts from another contract</li>
 <li>Importance of Typecasting</li>
 <li>How to use the `import` keyword</li>
 <li>How to update global variables from a child contract using the ```is``` and ```override``` keyword</li>
 
-I learnt a lot from this basic project. Thank you for reading until the end.
+<br/>
+<br/>
+I learnt a lot from this basic project.
+
+Thank you for reading until the end.
